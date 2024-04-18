@@ -11,7 +11,7 @@ export const validarJWT = (req, res, next) => {
         token = token.replace(/^Bearer\s+/, '')
         const decoded = jwt.verify(token, process.env.TOKEN_KEY)
 
-        req.user = decoded
+        req.user = decoded 
     }catch(e){
         console.log(e)
         return res.status(401).send('Invalid Token')
