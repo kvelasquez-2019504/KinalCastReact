@@ -35,7 +35,7 @@ export const Navbar = () => {
 		navigate("/settings");
 	};
 	const handleNavigateToChannelPage = () => {
-		navigate("/channles");
+		navigate("/channels");
 	};
 
 	const handleLogout = () => {

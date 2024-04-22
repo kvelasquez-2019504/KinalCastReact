@@ -15,7 +15,7 @@ export const useUserDetails=()=>{
         logoutHandler();
     }
     return {
-        isLogged:Boolean(useUserDetails),
+        isLogged:Boolean(userDetails),
         username:userDetails?.username?userDetails:'Guest',
         logout
     }
