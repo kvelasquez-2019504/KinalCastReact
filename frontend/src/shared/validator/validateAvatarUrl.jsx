@@ -1,6 +1,7 @@
 //Como este componente, no se pinta como tal, solo es reutilizable para mostrar algo
 
-export const validationAvatarUrl=(url)=> {
+export const validateAvatarUrl=(url)=> {
+  //Regex= regulate expresion
   const regex=/^(ftp|http|https):\/\/[^ "]+$/;
 
   return regex.test(url)

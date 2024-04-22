@@ -9,7 +9,7 @@ export const Input = ({
 	showErrorMessage,
 	validationMessage,
 	onBlurHandler,
-	textArea,
+	textarea
 }) => {
 	const handleValueChange = (event) => {
 		//captura del valor y seteo del valor
@@ -25,7 +25,7 @@ export const Input = ({
 				<span>{label}</span>
 			</div>
 			<div>
-				{textArea ? (
+				{textarea ? (
 					<textarea
 						type={type}
 						value={value}
@@ -35,7 +35,7 @@ export const Input = ({
 						style={{ maxWidth: "400px" }}
 					/>
 				) : (
-					<Input
+					<input
 						type={type}
 						value={value}
 						onChange={handleValueChange}
@@ -43,7 +43,7 @@ export const Input = ({
 					/>
 				)}
                 <span className="auth-form-validation-message">
-                    {showErrorMessage&&validationMessage}
+                    {showErrorMessage && validationMessage}
                 </span>
 			</div>
 		</>
