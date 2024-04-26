@@ -8,7 +8,7 @@ import {
     validateTitle,
     validateTitleMessage,
     validateDescription
-} from '../../shared/validator'
+} from '../../shared/validator';
 import { Input } from "../Input";
 
 const inputs = [
@@ -129,8 +129,9 @@ export const ChannelSettings = ({ settings, saveSettings }) => {
                     showErrorMessage={formState[input.field].showError}
                     validationMessage={input.validationMessage}
                     onBlurHandler={handleInputValidationOnBlur}
-                    textarea={input.textarea} />
-            ))
+                    textarea={input.textarea} 
+                    />
+                ))
             }
             <button onClick={handleFormSubmit} disabled={isSubmitButtonDisabled}>
                 Actualizar informacion
