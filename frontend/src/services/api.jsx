@@ -7,6 +7,20 @@ const apiClient = axios.create({
     timeout:'1000'
 });
 
+apiClient.interceptors.request.use(
+    (config)=>{
+        const useUserDetails = localStorage.getItem('user');
+        if(useUserDetails){
+            const token = JSON.parse(useUserDetails).token;
+            config.headers.Authorization=`Bearer ${token}`;
+        }
+        return config;
+    },
+    (e)=>{
+        return Promise.reject(e)
+    }
+)
+
 //como es una consulta externa, es asincrono
 export const login = async (data)=>{
     try {
@@ -41,14 +55,36 @@ export const getChannels =async()=>{
     }
 }
 
-export const getFollowedChannels =async()=>{
+export const getChannelSettings =async()=>{
     try {
-        return await apiClient.get('/channels/followed')
+        return await apiClient.get('/settings/channel')
     } catch (e) {
-        checkResponseStatus(e);
         return{
             error:true,
-            e:e
+            e
+        }
+    }
+}
+
+export const updateChannelSettings =async(data)=>{
+    try {
+        return await apiClient.put('/settings/channel',data)
+    } catch (e) {
+        return{
+            error:true,
+            e
+        }
+    }
+}
+
+export const getFollowedChannels = async () => {
+    try{
+        return await apiClient.get('/channels/followed')
+    }catch(e){
+        checkResponseStatus(e)
+        return{
+            error: true,
+            e: e
         }
     }
 }

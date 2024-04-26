@@ -4,19 +4,19 @@ import { Register } from "../../components/Register"
 
 import './authPage.css'
 
-export const AuthPage=()=> {
-  const [isLogin, setIsLogin]=useState(true);
+export const AuthPage = () => {
+  const [isLogin, setIsLogin] = useState(true);
   //permite cambiar de un form a otro
-  const handleAuthPageToggle=()=>{
+  const handleAuthPageToggle = () => {
     //esto cambia d falso a verdadero, cada vez que lo llamemos
-    setIsLogin((prev)=>!prev)
+    setIsLogin((prev) => !prev)
   }
   return (
     <div className="auth-container">
-      {isLogin?(
-        <Login switchAuthHandler={handleAuthPageToggle}/>
-      ):(
-        <Register switchAuthHandler={handleAuthPageToggle}/>
+      {isLogin ? (
+        <Login switchAuthHandler={handleAuthPageToggle} />
+      ) : (
+        <Register switchAuthHandler={handleAuthPageToggle} />
       )
       }
     </div>
